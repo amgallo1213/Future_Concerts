@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  /* background-color: #02010a; */
+}
+
+#add-concert-card,
+#home-card {
+  width: 1000px;
+  margin-top: 40px;
+  margin-left: 600px;
+  padding: 20px;
+}
+
