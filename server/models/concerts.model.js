@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ConcertsSchema = new mongoose.Schema({
+const ConcertSchema = new mongoose.Schema({
     bandName: {
         type: String,
         minlength: [3, "Band name must be at least 3 characters"],
@@ -21,5 +21,5 @@ const ConcertsSchema = new mongoose.Schema({
     },
 }, {timestamps: true});
 
-const Concert = mongoose.model('Concert', ConcertsSchema);
+const Concert = mongoose.model('Concert', ConcertSchema);
 module.exports = Concert;

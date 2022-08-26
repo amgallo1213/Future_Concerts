@@ -5,9 +5,12 @@
 
 #add-concert-card,
 #home-card {
-  width: 1000px;
+  width: 1100px;
   margin-top: 40px;
   margin-left: 600px;
   padding: 20px;
 }
 
+/* #search {
+  width: 50%;
+} */

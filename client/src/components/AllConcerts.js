@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 import { MDBTable, MDBTableHead, MDBTableBody,
-    MDBCard, MDBCardBody, MDBCardImage, MDBCardText } from 'mdb-react-ui-kit';
+    MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBInput, MDBBtn } from 'mdb-react-ui-kit';
 import "../App.css";
 // import NavBar from './NavBar';
 
@@ -84,6 +84,8 @@ const AllConcerts = (props) => {
                     <MDBCardBody>
                         <MDBCardText style={{fontSize: "2.75em"}}>
                             Search for Concerts
+                            <MDBInput label='Band Name' id='search' type='text' size="sm" />
+                            <MDBBtn outline rounded className='mx-2' color='dark'>Search</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
