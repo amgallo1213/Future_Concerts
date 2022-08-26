@@ -34,7 +34,7 @@ return(
         <MDBCard id="add-concert-card">
             <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' position='top' alt='...' id="form-img"/>
             <MDBCardBody>
-                <MDBCardTitle>Add a Concert</MDBCardTitle>
+                <MDBCardTitle id="addTitle">Add a Concert</MDBCardTitle>
                 <MDBCardText>
                 <form onSubmit={onSubmitHandler} >
                             <div className="Form">
