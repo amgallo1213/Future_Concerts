@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
-import { MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBInput, MDBCardTitle, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBInput, MDBCardTitle, MDBBtn, MDBCheckbox } from 'mdb-react-ui-kit';
 // import NavBar from './NavBar';
 
 const AddConcert = (props) => {
@@ -53,6 +53,10 @@ return(
                                     </div>   
                                 </div>
                                 <div className="Right">
+                                    <div>
+                                        <MDBCheckbox name='inlineCheck' id='inlineCheckbox1' value='option1' label='Yes' inline />
+                                        <MDBCheckbox name='inlineCheck' id='inlineCheckbox2' value='option2' label='No' inline />
+                                    </div>
                                     <div className="Input">
                                         <MDBInput label='Tickets Purchased' value={ticketsPurchased} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setTicketsPurchased(e.target.value)} /> 
                                         {errors.ticketsPurchased?.message}

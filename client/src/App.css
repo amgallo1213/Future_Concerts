@@ -6,7 +6,7 @@
 #add-concert-card,
 #home-card {
   width: 1100px;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-left: 600px;
   padding: 20px;
 }
@@ -17,4 +17,12 @@
 
 .Input  {
   margin: 10px;
+}
+
+#title  {
+  font-size: 3rem;
+}
+
+.NavBarNav  {
+  font-size: 1.4rem;
 }

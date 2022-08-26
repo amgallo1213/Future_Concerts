@@ -18,7 +18,7 @@ const NavBar = () => {
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
-                <MDBNavbarBrand href='#' style={{color: '#f72585'}} >Future Concerts</MDBNavbarBrand>
+                <MDBNavbarBrand href='#' style={{color: '#f72585'}} id="title" >Future Concerts</MDBNavbarBrand>
                 <MDBNavbarToggler
                     type='button'
                     aria-expanded='false'
@@ -29,18 +29,18 @@ const NavBar = () => {
                 </MDBNavbarToggler>
                 <MDBCollapse navbar show={showNav}>
                     <MDBNavbarNav>
-                        <MDBNavbarItem>
+                        <MDBNavbarItem class="NavBarNav">
                             <MDBNavbarLink active aria-current='page' href='/'>
                                 Home
                             </MDBNavbarLink>
                         </MDBNavbarItem>
-                        <MDBNavbarItem>
+                        <MDBNavbarItem class="NavBarNav">
                             <MDBNavbarLink href='#'>Add</MDBNavbarLink>
                         </MDBNavbarItem>
-                        <MDBNavbarItem>
+                        <MDBNavbarItem class="NavBarNav">
                             <MDBNavbarLink href='#'>Previous</MDBNavbarLink>
                         </MDBNavbarItem>
-                        <MDBNavbarItem>
+                        <MDBNavbarItem class="NavBarNav">
                             <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
                                 My Photos
                             </MDBNavbarLink>
