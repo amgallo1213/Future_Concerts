@@ -1,32 +1,54 @@
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
-import { Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import {
+    MDBContainer,
+    MDBNavbar,
+    MDBNavbarBrand,
+    MDBNavbarToggler,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBNavbarLink,
+    MDBCollapse
+} from 'mdb-react-ui-kit';
 
 
 
 const NavBar = () => {
+    const [showNav, setShowNav] = useState(false);
+
     return (
-        <div>
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-
-            <div>
-                <Button variant="danger">I'm A Button!</Button>
-            </div>
-        </div>
-     
-
+        <MDBNavbar expand='lg' light bgColor='light'>
+            <MDBContainer fluid>
+                <MDBNavbarBrand href='#' style={{color: '#f72585'}} >Future Concerts</MDBNavbarBrand>
+                <MDBNavbarToggler
+                    type='button'
+                    aria-expanded='false'
+                    aria-label='Toggle navigation'
+                    onClick={() => setShowNav(!showNav)}
+                >
+                    {/* <MDBIcon icon='bars' fas /> */}
+                </MDBNavbarToggler>
+                <MDBCollapse navbar show={showNav}>
+                    <MDBNavbarNav>
+                        <MDBNavbarItem>
+                            <MDBNavbarLink active aria-current='page' href='/'>
+                                Home
+                            </MDBNavbarLink>
+                        </MDBNavbarItem>
+                        <MDBNavbarItem>
+                            <MDBNavbarLink href='#'>Add</MDBNavbarLink>
+                        </MDBNavbarItem>
+                        <MDBNavbarItem>
+                            <MDBNavbarLink href='#'>Previous</MDBNavbarLink>
+                        </MDBNavbarItem>
+                        <MDBNavbarItem>
+                            <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
+                                My Photos
+                            </MDBNavbarLink>
+                        </MDBNavbarItem>
+                    </MDBNavbarNav>
+                </MDBCollapse>
+            </MDBContainer>
+        </MDBNavbar>
     );
 }
 

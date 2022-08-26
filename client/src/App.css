@@ -6,7 +6,7 @@
 #add-concert-card,
 #home-card {
   width: 1100px;
-  margin-top: 40px;
+  margin-top: 70px;
   margin-left: 600px;
   padding: 20px;
 }
@@ -14,3 +14,7 @@
 /* #search {
   width: 50%;
 } */
+
+.Input  {
+  margin: 10px;
+}

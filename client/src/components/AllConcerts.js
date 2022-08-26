@@ -4,7 +4,7 @@ import { Link } from '@reach/router';
 import { MDBTable, MDBTableHead, MDBTableBody,
     MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBInput, MDBBtn } from 'mdb-react-ui-kit';
 import "../App.css";
-// import NavBar from './NavBar';
+import NavBar from './NavBar';
 
 
 
@@ -39,6 +39,7 @@ const AllConcerts = (props) => {
 
     return(
         <div>
+            <NavBar />
             <div id="home-card" className="homeCard">
                 <MDBCard className='mb-3 Card' >
                     <MDBCardImage overlay src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' alt='...' />   
