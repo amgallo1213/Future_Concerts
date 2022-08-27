@@ -23,6 +23,12 @@
   background-color: #f8f9fa;
 }
 
+#addLink  {
+  color: #f72585;
+  font-size: 1.4rem;
+  margin: 15px;
+}
+
 #searchBTN  {
   margin: 10px;
 }

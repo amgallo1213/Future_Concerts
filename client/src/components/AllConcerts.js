@@ -82,15 +82,16 @@ const AllConcerts = (props) => {
                                 </MDBTableBody>
                             </MDBTable>
                             <div>
-                                <Link to={'/concerts/create'}>Add a concert</Link>
-                                <div id="concertSearch">
-                                    <ConcertSearch />
-                                </div>
+                                <Link to={'/concerts/create'} id="addLink">Add a concert</Link>
+                                
                             </div>
                         </MDBCardBody>
                     </MDBCol>
                     <MDBCol md='4'>
                         <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' alt='...' fluid />
+                        <div id="concertSearch">
+                            <ConcertSearch />
+                        </div>
                     </MDBCol>
                 </MDBRow>
             </MDBCard>
