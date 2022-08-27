@@ -30,7 +30,7 @@ const NavBar = () => {
                 <MDBCollapse navbar show={showNav}>
                     <MDBNavbarNav>
                         <MDBNavbarItem class="NavBarNav">
-                            <MDBNavbarLink active aria-current='page' href='/'>
+                            <MDBNavbarLink active aria-current='page' href='/home'>
                                 Home
                             </MDBNavbarLink>
                         </MDBNavbarItem>

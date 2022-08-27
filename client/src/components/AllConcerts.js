@@ -67,7 +67,7 @@ const AllConcerts = (props) => {
                                     <td className="border-end">{concert.venue}</td>
                                     <td className="border-end">{concert.date}</td>
                                     <td className="border-end">{concert.ticketsPurchased}</td>
-                                    <td className="border-end"><button className="btn btn-outline-dark btn-sm"  onClick={()=>{deleteConcert(concert._id)}}>cancel concert</button></td>
+                                    <td className="border-end"><MDBBtn color="link" onClick={()=>{deleteConcert(concert._id)}}>cancel concert</MDBBtn></td>
                                     <td><Link to={"/concerts/past-concerts"} style={{color: '#4cc9f0'}}>send to the archives</Link></td>
                                     
                                 </tr>

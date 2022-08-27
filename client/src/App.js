@@ -2,6 +2,7 @@ import { Router } from '@reach/router';
 import './App.css';
 import AllConcerts from './components/AllConcerts';
 import AddConcert from './components/AddConcert';
+import OneConcert from './components/OneConcert';
 
 
 
@@ -15,6 +16,7 @@ function App() {
         <Router>
           <AllConcerts path="/home" />
           <AddConcert path="/concerts/create" exact component={AddConcert}/>
+          <OneConcert path="/concerts/:id"  />
         </Router>
         
         
