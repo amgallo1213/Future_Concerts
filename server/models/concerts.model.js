@@ -16,7 +16,7 @@ const ConcertSchema = new mongoose.Schema({
         required: [true, "When are they playing?"]
     },
     ticketsPurchased: {
-        type: Boolean,
+        type: String,
         required: [true, "Did you buy tickets yet?"]
     },
 }, {timestamps: true});

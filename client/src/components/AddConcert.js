@@ -13,67 +13,67 @@ const AddConcert = (props) => {
 
     const onSubmitHandler = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8000/api/concerts/create", {
-        bandName, venue, date, ticketsPurchased
-    })
-    .then((res) => {
-        console.log(res.data);
-        navigate("/home")
-    })
-    .catch((err) => {
-        console.log(err);
-        console.log("err.response:", err.response);
-        console.log("err.response.data:", err.response.data);
-        console.log("err.response.data.errors:", err.response.data.errors);
-        setErrors(err.response.data.errors);
-    });
-};
+        axios.post("http://localhost:8000/api/concerts/create", {
+            bandName, venue, date, ticketsPurchased
+        })
+        .then((res) => {
+            console.log(res.data);
+            navigate("/home")
+        })
+        .catch((err) => {
+            console.log(err);
+            console.log("err.response:", err.response);
+            console.log("err.response.data:", err.response.data);
+            console.log("err.response.data.errors:", err.response.data.errors);
+            setErrors(err.response.data.errors);
+        });
+    };
 
-return(
-    <div className="App">
-        <MDBCard id="add-concert-card">
-            <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' position='top' alt='...' id="form-img"/>
-            <MDBCardBody>
-                <MDBCardTitle id="addTitle">Add a Concert</MDBCardTitle>
-                <MDBCardText>
-                <form onSubmit={onSubmitHandler} >
-                            <div className="Form">
-                                <div className="Left">
-                                    <div className="Input">
-                                        <MDBInput label='Band Name' value={bandName} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setBandName(e.target.value)} />
-                                        {errors.bandName?.message}
+    return(
+        <div className="App">
+            <MDBCard id="add-concert-card">
+                <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' position='top' alt='...' id="form-img"/>
+                <MDBCardBody>
+                    <MDBCardTitle id="addTitle">Add a Concert</MDBCardTitle>
+                    <MDBCardText>
+                    <form onSubmit={onSubmitHandler} >
+                                <div className="Form">
+                                    <div className="Left">
+                                        <div className="Input">
+                                            <MDBInput label='Band Name' value={bandName} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setBandName(e.target.value)} />
+                                            {errors.bandName?.message}
+                                        </div>
+                                        <div className="Input">
+                                            <MDBInput label='Venue Name' value={venue} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setVenue(e.target.value)} />
+                                            {errors.venue?.message}
+                                        </div>
+                                        <div className="Input">
+                                            <MDBInput label='Concert Date' value={date} id='form1' type='date' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setDate(e.target.value)} /> 
+                                            {errors.date?.message}
+                                        </div>   
                                     </div>
-                                    <div className="Input">
-                                        <MDBInput label='Venue Name' value={venue} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setVenue(e.target.value)} />
-                                        {errors.venue?.message}
+                                    <div className="Right">
+                                        <div>
+                                            <MDBCheckbox name='inlineCheck' id='inlineCheckbox1' value='option1' label='Yes' inline />
+                                            <MDBCheckbox name='inlineCheck' id='inlineCheckbox2' value='option2' label='No' inline />
+                                        </div>
+                                        <div className="Input">
+                                            <MDBInput label='Tickets Purchased' value={ticketsPurchased} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setTicketsPurchased(e.target.value)} /> 
+                                            {errors.ticketsPurchased?.message}
+                                        </div>
+                                        <div>
+                                            <button className="btn btn-outline-dark btn-lg " type="submit">Add to List</button>
+                                        </div>
                                     </div>
-                                    <div className="Input">
-                                        <MDBInput label='Concert Date' value={date} id='form1' type='date' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setDate(e.target.value)} /> 
-                                        {errors.date?.message}
-                                    </div>   
                                 </div>
-                                <div className="Right">
-                                    <div>
-                                        <MDBCheckbox name='inlineCheck' id='inlineCheckbox1' value='option1' label='Yes' inline />
-                                        <MDBCheckbox name='inlineCheck' id='inlineCheckbox2' value='option2' label='No' inline />
-                                    </div>
-                                    <div className="Input">
-                                        <MDBInput label='Tickets Purchased' value={ticketsPurchased} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setTicketsPurchased(e.target.value)} /> 
-                                        {errors.ticketsPurchased?.message}
-                                    </div>
-                                    <div>
-                                        <button className="btn btn-outline-light btn-lg " >Add to List</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form> 
-                </MDBCardText>
-                <MDBBtn type="submit">Add to List</MDBBtn>
-                <p><Link to={"/home"} class="Home-Link">back to home</Link></p>
-            </MDBCardBody>
-            </MDBCard>
-    </div>
-)
+                            </form> 
+                    </MDBCardText>
+                    {/* <MDBBtn type="submit">Add to List</MDBBtn> */}
+                    <p><Link to={"/home"} class="Home-Link">back to home</Link></p>
+                </MDBCardBody>
+                </MDBCard>
+        </div>
+    )   
 
 }
 
