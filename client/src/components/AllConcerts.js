@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 import { MDBTable, MDBTableHead, MDBTableBody,
-    MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBInput, MDBBtn } from 'mdb-react-ui-kit';
+    MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBInput, MDBBtn, MDBRow,
+    MDBCol, MDBCardTitle } from 'mdb-react-ui-kit';
 import "../App.css";
 import NavBar from './NavBar';
 import ConcertSearch from './Search';
@@ -41,6 +42,63 @@ const AllConcerts = (props) => {
     return(
         <div>
             <NavBar />
+
+            <MDBCard class="card">
+                <MDBRow className='g-0'> 
+                    <MDBCol md='8'>
+                        <MDBCardBody>
+                        <MDBCardText className="Tagline" style={{fontSize: "2.75em"}}>My Upcoming Concerts</MDBCardText>
+                            
+                        
+                            <MDBTable hover className="Table">
+                                <MDBTableHead>
+                                    <tr>
+                                        <th scope='col' style={{fontSize: "1.8em"}}>Band Name</th>
+                                        <th scope='col' style={{fontSize: "1.8em"}}>Venue</th>
+                                        <th scope='col' style={{fontSize: "1.8em"}}>Date</th>
+                                        <th scope='col' style={{fontSize: "1.8em"}}>Tickets Purchased</th>
+                                        <th scope='col' style={{fontSize: "1.8em"}}>Cancel Concert</th>
+                                        <th scope='col' style={{fontSize: "1.8em"}}>After the Concert</th>
+                                    </tr>
+                                </MDBTableHead>
+                                <MDBTableBody>
+
+                                {
+                                    concertList.map((concert, index) => (
+
+                                    <tr key={index} className="concert">
+                                        <td className="border-end" ><Link to={`/concerts/${concert._id}`} style={{color: '#4cc9f0'}}>{concert.bandName}</Link></td>
+                                        <td className="border-end">{concert.venue}</td>
+                                        <td className="border-end">{concert.date}</td>
+                                        <td className="border-end">{concert.ticketsPurchased}</td>
+                                        <td className="border-end"><MDBBtn color="link" onClick={()=>{deleteConcert(concert._id)}}>cancel concert</MDBBtn></td>
+                                        <td><Link to={"/concerts/past-concerts"} style={{color: '#4cc9f0'}}>send to the archives</Link></td>
+                                        
+                                    </tr>
+
+                                    ))
+                                }
+
+                                </MDBTableBody>
+                            </MDBTable>
+                            <div>
+                                <Link to={'/concerts/create'}>Add a concert</Link>
+                                <div id="concertSearch">
+                                    <ConcertSearch />
+                                </div>
+                            </div>
+                        </MDBCardBody>
+                    </MDBCol>
+                    <MDBCol md='4'>
+                        <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' alt='...' fluid />
+                    </MDBCol>
+                </MDBRow>
+            </MDBCard>
+
+
+
+{/* 
+
 
             <div id="homePage">
                 <div id="home-card" className="homeCard">
@@ -82,13 +140,13 @@ const AllConcerts = (props) => {
                             </MDBTable>
                         </MDBCardBody>
                     </MDBCard>
-                </div>
+                </div> */}
 
-                <div id="concertSearch">
+                {/* <div id="concertSearch">
                     <ConcertSearch />
-                </div>
+                </div> */}
             </div>
-        </div>
+        // </div>
     )
 }
 
