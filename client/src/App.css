@@ -4,16 +4,20 @@
 }
 
 #add-concert-card,
-#home-card {
-  width: 1100px;
+#home-card
+#search-card {
+  /* width: 1100px; */
+  width: 700px;
   margin-top: 50px;
-  margin-left: 600px;
+  /* margin-left: 600px; */
+  margin-left: 20px;
   padding: 20px;
 }
 
-/* #search {
-  width: 50%;
-} */
+#homePage {
+  display: flex;
+  flex-direction: row;
+}
 
 .Input  {
   margin: 10px;
