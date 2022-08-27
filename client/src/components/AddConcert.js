@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import { MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBInput, MDBCardTitle, MDBCheckbox } from 'mdb-react-ui-kit';
+import "../App.css";
 // import NavBar from './NavBar';
 
 const AddConcert = (props) => {

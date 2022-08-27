@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
+import "../App.css";
 import NavBar from './NavBar';
 
 
@@ -8,7 +9,7 @@ import NavBar from './NavBar';
 const OneConcert = (props) => {
     const { id, removeFromDom } = props;
     const [concertList, setConcertList] = useState("");
-    const [singleConcert, setSingleConcert] = useState([]);
+    const [oneConcert, setOneConcert] = useState([]);
     console.log("OneConcert");
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const OneConcert = (props) => {
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
-                singleConcert(res.data);
+                setOneConcert(res.data);
             })
             .catch((err) => {
                 console.log(err)
@@ -39,8 +40,17 @@ const OneConcert = (props) => {
         <div>
             <NavBar/>
             <div>
-                <p>Band Name: {singleConcert.bandName}</p>
-                <p>Venue Name: {singleConcert.venue} </p>
+                <h2>{oneConcert.bandName}</h2>
+                <div id="videoSpace"><p>Photo or Video</p></div>
+                <div id="concertInfo">
+                    <div>
+                        <p>Concert Date: {oneConcert.date} </p>
+                        <p>Tickets Purchased: {oneConcert.ticketsPurchased} </p>
+                    </div>
+                    <div>
+                        <p>{oneConcert.venue}</p>
+                    </div>
+                </div>
             </div>
 
         </div>
