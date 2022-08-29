@@ -3,7 +3,7 @@
   /* background-color: #02010a; */
 }
 
-#add-concert-card,
+
 #home-card
 #search-card {
   /* width: 1100px; */
@@ -12,6 +12,15 @@
   /* margin-left: 600px; */
   margin-left: 20px;
   padding: 20px;
+}
+
+#add-concert-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 700px;
+  margin-top: 20px;
+  padding-left: 100px;
 }
 
 #homePage {

@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import { MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBInput, MDBCardTitle, MDBCheckbox } from 'mdb-react-ui-kit';
 import "../App.css";
-// import NavBar from './NavBar';
+import NavBar from './NavBar';
+
 
 const AddConcert = (props) => {
     const [bandName, setBandName] = useState("");
@@ -32,6 +33,7 @@ const AddConcert = (props) => {
 
     return(
         <div className="App">
+            <NavBar />
             <MDBCard id="add-concert-card">
                 <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' position='top' alt='...' id="form-img"/>
                 <MDBCardBody>
