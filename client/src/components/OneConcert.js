@@ -48,7 +48,8 @@ const OneConcert = (props) => {
                         <p>Tickets Purchased: {oneConcert.ticketsPurchased} </p>
                     </div>
                     <div>
-                        <p>{oneConcert.venue}</p>
+                        <p>Location: {oneConcert.venue}</p>
+                        <button type="submit" onClick={(e)=>{deleteConcert(oneConcert._id)}}>Cancel concert</button>
                     </div>
                 </div>
             </div>

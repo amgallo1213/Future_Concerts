@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 import { MDBTable, MDBTableHead, MDBTableBody,
-    MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBInput, MDBBtn, MDBRow,
-    MDBCol, MDBCardTitle } from 'mdb-react-ui-kit';
+    MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBBtn, MDBRow,
+    MDBCol } from 'mdb-react-ui-kit';
 import "../App.css";
 import NavBar from './NavBar';
 import ConcertSearch from './Search';

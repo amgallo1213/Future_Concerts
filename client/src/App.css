@@ -29,6 +29,10 @@
   margin: 15px;
 }
 
+#search {
+  width: 100px;
+}
+
 #searchBTN  {
   margin: 10px;
 }
