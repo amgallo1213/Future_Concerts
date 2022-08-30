@@ -39,7 +39,7 @@ const NavBar = () => {
                             <MDBNavbarLink href='/concerts/create'>Add</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem class="NavBarNav">
-                            <MDBNavbarLink href='#'>Previous</MDBNavbarLink>
+                            <MDBNavbarLink href='/concerts/previous'>Previous</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem class="NavBarNav">
                             <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
