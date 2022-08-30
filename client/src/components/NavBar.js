@@ -46,6 +46,11 @@ const NavBar = () => {
                                 Search for Concerts
                             </MDBNavbarLink>
                         </MDBNavbarItem>
+                        <MDBNavbarItem class="NavBarNav">
+                            <MDBNavbarLink href='/concerts/photos' tabIndex={-1} >
+                                My Photos
+                            </MDBNavbarLink>
+                        </MDBNavbarItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBContainer>

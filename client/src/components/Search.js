@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 // import { Link } from '@reach/router';
 import {
     MDBCard, MDBCardTitle, MDBCardBody,
@@ -16,9 +16,24 @@ import NavBar from './NavBar';
 const ConcertSearch = () => {
     let [bandName, setBandName] = useState("");
 
+    // const options = {
+    //     method: 'GET',
+    //     url: 'https://concerts-artists-events-tracker.p.rapidapi.com/artist',
+    //     params: { name: 'Ed sheeran', page: '1' },
+    //     headers: {
+    //         'X-RapidAPI-Key': process.env.CONCERT_API_KEY,
+    //         'X-RapidAPI-Host': 'concerts-artists-events-tracker.p.rapidapi.com'
+    //     },
+
+    //     axios.request(options).then(function (response) {
+    //         console.log(response.data);
+    //     }).catch(function (error) {
+    //         console.error(error);
+    //     })
+    // };
+
+
     let [responseObj, setRepsonseObj] = useState({});
-
-
 
 
     return (
@@ -29,12 +44,12 @@ const ConcertSearch = () => {
                 <MDBCardBody>
                     <MDBCardTitle>Search for Concerts</MDBCardTitle>
                     <MDBCardText>
-                        
-                    <form>
-                        <MDBInput label='Band Name' id='search' class="search" type='text' size="sm" value={bandName}
-                        onChange={(e) => setBandName(e.target.value)} />
-                        <MDBBtn outline rounded className='mx-2' color='dark' id="searchBTN" type="submit">Search</MDBBtn>
-                    </form>
+
+                        <form>
+                            <MDBInput label='Band Name' id='search' class="search" type='text' size="sm" value={bandName}
+                                onChange={(e) => setBandName(e.target.value)} />
+                            <MDBBtn outline rounded className='mx-2' color='dark' id="searchBTN" type="submit">Search</MDBBtn>
+                        </form>
 
                     </MDBCardText>
                     {/* <MDBBtn>Button</MDBBtn> */}
@@ -43,12 +58,12 @@ const ConcertSearch = () => {
 
 
 
-            
 
-            <div id="results">
-                <h3>Results for *BandName*</h3>
-                <SearchResults responseObj={responseObj} />
-            </div>
+
+            // <div id="results">
+            //     <h3>Results for *BandName*</h3>
+            //     <SearchResults responseObj={responseObj} />
+            // </div>
 
 
         </div>

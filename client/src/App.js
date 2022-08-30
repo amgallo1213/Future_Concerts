@@ -5,6 +5,7 @@ import AddConcert from './components/AddConcert';
 import OneConcert from './components/OneConcert';
 import PreviousConcert from './components/Previous';
 import ConcertSearch from './components/Search';
+import Photos from './components/Photos';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <OneConcert path="/concerts/:id"  />
           <PreviousConcert path="/concerts/previous" />
           <ConcertSearch path="/concerts/search" />
+          <Photos path="/concerts/photos" />
         </Router>
         
         
