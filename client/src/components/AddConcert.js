@@ -71,7 +71,7 @@ const AddConcert = (props) => {
                                 </div>
                             </form> 
                     </MDBCardText>
-                    <p><Link to={"/home"} class="Home-Link">back to home</Link></p>
+                    <p><Link to={"/home"} class="homeLink">back to home</Link></p>
                 </MDBCardBody>
                 </MDBCard>
         </div>

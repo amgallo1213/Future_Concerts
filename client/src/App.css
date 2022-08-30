@@ -24,7 +24,7 @@
 }
 
 .Left {
-  width: 400px;
+  width: 500px;
 }
 
 #homePage {
@@ -42,12 +42,26 @@
   margin: 15px;
 }
 
-#search {
-  width: 100px;
+.homeLink {
+  color: #f72585;
+}
+
+.search {
+  width: 600px;
 }
 
 #searchBTN  {
   margin: 10px;
+}
+
+#results  {
+  margin: 40px;
+}
+
+.searchResults  {
+  width: 30%;
+  border: 1px solid #f72585;
+  margin: 20px;
 }
 
 .Input  {

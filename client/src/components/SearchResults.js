@@ -1,11 +1,19 @@
 import React from 'react';
+import {
+    MDBCard,
+    MDBCardBody,
+    MDBCardTitle,
+    MDBCardText,
+    MDBCardHeader,
+    MDBCardFooter
+} from 'mdb-react-ui-kit';
 
 const SearchResults = (props) => {
     return (
         <div>
 
 
-{           props.responseObj.cod === 200 ?
+            {props.responseObj.cod === 200 ?
                 <div>
                     <div>
                         <h2><strong>{props.responseObj.name}</strong></h2>
@@ -18,9 +26,16 @@ const SearchResults = (props) => {
                     </div>
                 </div>
                 : null
-            }   
+            }
 
-
+            <MDBCard alignment='center' class="searchResults">
+                <MDBCardHeader>CITY</MDBCardHeader>
+                <MDBCardBody>
+                    <MDBCardTitle>Special title treatment</MDBCardTitle>
+                    <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
+                </MDBCardBody>
+                <MDBCardFooter className='text-muted'>2 days ago</MDBCardFooter>
+            </MDBCard>
 
 
         </div>

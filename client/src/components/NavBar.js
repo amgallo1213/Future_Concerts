@@ -42,8 +42,8 @@ const NavBar = () => {
                             <MDBNavbarLink href='/concerts/previous'>Previous</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem class="NavBarNav">
-                            <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                                My Photos
+                            <MDBNavbarLink href='/concerts/search' tabIndex={-1} >
+                                Search for Concerts
                             </MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarNav>

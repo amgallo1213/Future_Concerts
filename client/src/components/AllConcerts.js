@@ -89,9 +89,6 @@ const AllConcerts = (props) => {
                     </MDBCol>
                     <MDBCol md='4'>
                         <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' alt='...' fluid />
-                        <div id="concertSearch">
-                            <ConcertSearch />
-                        </div>
                     </MDBCol>
                 </MDBRow>
             </MDBCard>

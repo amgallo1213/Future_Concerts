@@ -4,6 +4,7 @@ import AllConcerts from './components/AllConcerts';
 import AddConcert from './components/AddConcert';
 import OneConcert from './components/OneConcert';
 import PreviousConcert from './components/Previous';
+import ConcertSearch from './components/Search';
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <AddConcert path="/concerts/create" exact component={AddConcert}/>
           <OneConcert path="/concerts/:id"  />
           <PreviousConcert path="/concerts/previous" />
+          <ConcertSearch path="/concerts/search" />
         </Router>
         
         
