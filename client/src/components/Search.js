@@ -4,7 +4,7 @@ import axios from 'axios';
 import {
     MDBCard, MDBCardTitle, MDBCardBody,
     MDBCardImage, MDBCardText, MDBInput,
-    MDBBtn
+    MDBBtn, MDBRow, MDBCol
 } from 'mdb-react-ui-kit';
 import "../App.css";
 import SearchResults from './SearchResults';
@@ -40,15 +40,42 @@ const ConcertSearch = () => {
         <div>
             <NavBar />
 
+            <h2>Search for Concerts</h2>
+            <form>
+            <MDBRow className='mb-3'>
+                
+                <MDBCol size='6' lg='8'>
+                    <MDBInput label='Band Name' id='search' class="search" type='text' size="sm" value={bandName}
+                                onChange={(e) => setBandName(e.target.value)} />
+                </MDBCol>{' '}
+                <MDBCol size='6' lg='4'>
+                    <MDBBtn outline rounded className='mx-2' color='dark' id="searchBTN" type="submit">Search</MDBBtn>
+                </MDBCol>
+                
+            </MDBRow>
+            </form>
+            <MDBRow>
+                <MDBCol size='6' sm='4'>
+                    sm="6" sm="4"
+                </MDBCol>
+                <MDBCol size='6' sm='4'>
+                    sm="6" sm="4"
+                </MDBCol>
+                <MDBCol size='6' sm='4'>
+                    sm="6" sm="4"
+                </MDBCol>
+            </MDBRow>
+
+
+
             <MDBCard>
                 <MDBCardBody>
                     <MDBCardTitle>Search for Concerts</MDBCardTitle>
                     <MDBCardText>
 
                         <form>
-                            <MDBInput label='Band Name' id='search' class="search" type='text' size="sm" value={bandName}
-                                onChange={(e) => setBandName(e.target.value)} />
-                            <MDBBtn outline rounded className='mx-2' color='dark' id="searchBTN" type="submit">Search</MDBBtn>
+                            
+                           
                         </form>
 
                     </MDBCardText>
