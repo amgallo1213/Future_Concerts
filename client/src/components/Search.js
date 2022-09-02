@@ -54,43 +54,23 @@ const ConcertSearch = () => {
                 
             </MDBRow>
             </form>
-            <MDBRow>
-                <MDBCol size='6' sm='4'>
-                    sm="6" sm="4"
-                </MDBCol>
-                <MDBCol size='6' sm='4'>
-                    sm="6" sm="4"
-                </MDBCol>
-                <MDBCol size='6' sm='4'>
-                    sm="6" sm="4"
-                </MDBCol>
-            </MDBRow>
+            <div id="results">
+                <h3>Results for *BandName*</h3>
+                <MDBRow>
+                    <MDBCol size='6' sm='4'>
+                        <SearchResults responseObj={responseObj} />
+                    </MDBCol>
+                    <MDBCol size='6' sm='4'>
+                        <SearchResults responseObj={responseObj} />
+                    </MDBCol>
+                    <MDBCol size='6' sm='4'>
+                        <SearchResults responseObj={responseObj} />
+                    </MDBCol>
+                </MDBRow>
+            </div>
 
 
-
-            <MDBCard>
-                <MDBCardBody>
-                    <MDBCardTitle>Search for Concerts</MDBCardTitle>
-                    <MDBCardText>
-
-                        <form>
-                            
-                           
-                        </form>
-
-                    </MDBCardText>
-                    {/* <MDBBtn>Button</MDBBtn> */}
-                </MDBCardBody>
-            </MDBCard>
-
-
-
-
-
-            // <div id="results">
-            //     <h3>Results for *BandName*</h3>
-            //     <SearchResults responseObj={responseObj} />
-            // </div>
+            
 
 
         </div>
