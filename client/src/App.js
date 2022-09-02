@@ -6,7 +6,7 @@ import OneConcert from './components/OneConcert';
 import PreviousConcert from './components/Previous';
 import ConcertSearch from './components/Search';
 import Photos from './components/Photos';
-import EditConcert from './components/EditConcert';
+// import EditConcert from './components/EditConcert';
 
 
 
@@ -21,7 +21,7 @@ function App() {
           <AllConcerts path="/home" />
           <AddConcert path="/concerts/create" exact component={AddConcert}/>
           <OneConcert path="/concerts/:id"  />
-          <EditConcert path="/concerts/update/:id" />
+          {/* <EditConcert path="/concerts/update/:id" /> */}
           <PreviousConcert path="/concerts/previous" />
           <ConcertSearch path="/concerts/search" />
           <Photos path="/concerts/photos" />
