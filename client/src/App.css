@@ -3,6 +3,24 @@
   /* background-color: #02010a; */
 }
 
+#navDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#navH2  {
+  color: #FF4081;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.cancelBtn  {
+  background-color: #6200EA;
+  color: #E8EAF6;
+  border-radius: 20px;
+}
+
 #intro  {
   display: flex;
   flex-direction: row;
@@ -16,7 +34,7 @@
 }
 
 h1  {
-  color: #7C4DFF;
+  color: #FF4081;
   font-size: 4.5rem;
   text-align: center;
   margin-top: 40px;
@@ -30,9 +48,16 @@ h1  {
   font-size: 1.3rem;
 }
 
-#addLink  {
+.addBtn {
   font-size: 1.4rem;
-  color: #FF4081;
+  background-color: #FF4081;
+  /* color: #E8EAF6; */
+  border-radius: 20px;
+}
+
+#addBtnLink {
+  color: #E8EAF6;
+  text-decoration: none;
 }
 
 #results    {
@@ -42,102 +67,46 @@ h1  {
   margin-left: 250px;
 }
 
-
-/* 
-#home-card
-#search-card {
-  /* width: 1100px; 
-  /* margin-left: 600px;
-  margin-left: 20px;
-  padding: 20px;
-}
-
-#add-concert-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 80%;
-  margin-top: 20px;
-  padding-left: 100px;
-}
-
-.Left {
-  width: 500px;
-}
-
-#homePage {
-  display: flex;
-  flex-direction: row;
-}
-
-.card {
-  background-color: #f8f9fa;
-}
-
-#addLink  {
-  color: #f72585;
+#searchBtn  {
   font-size: 1.4rem;
-  margin: 15px;
+  background-color: #FF4081;
+  width: 150px;
+  border-radius: 10px;
 }
 
-.homeLink {
-  color: #f72585;
+.tableData  {
+  width: 75px;
 }
 
-.search {
-  width: 600px;
+#oneConcertPage {
+  background-color: #EDE7F6;
+  height: 100vh;
+}
+#oneConcertPageH2   {
+  font-size: 5rem;
+  color: #6200EA;
+  padding-top: 20px;
 }
 
-#searchBTN  {
-  margin: 10px;
-  width: 200px;
+#oneConcertCard {
+  width: 40rem;
+  margin-left: 750px;
+  margin-top: 60px;
+  height: 20rem;
 }
 
-#results  {
-  margin: 40px;
-}
-
-.searchResults  {
-  width: 60%;
-  border: 1px solid #f72585;
-  margin: 20px;
-}
-
-.Input  {
-  margin: 10px;
-}
-
-#title  {
-  font-size: 3rem;
-}
-
-.NavBarNav  {
-  font-size: 1.4rem;
-}
-
-#addTitle {
-  font-size: 2rem;
-}
-
-h2  {
-  font-size: 2.5rem;
-}
-
-td  {
+#oneConcertCardTitle  {
   font-size: 1.5rem;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
-#concertInfo  {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.oneConcertCardText {
+  font-size: 1.3rem;
+
 }
 
-#videoSpace {
-  width: 700px;
-  height: 500px;
-  border: 1px solid black;
-  margin-left: 700px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-} */
+#editLink {
+  color: #6200EA;
+  padding: 10px;
+}

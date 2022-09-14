@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'React';
 import axios from 'axios';
 import { navigate, Link } from '@reach/router';
 import "../App.css";
-import { MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBInput, MDBCardTitle, MDBCheckbox } from 'mdb-react-ui-kit';
+import { Button, Form } from 'react-bootstrap';
 import NavBar from './NavBar';
 
 const EditConcert = (props) => {
@@ -50,46 +50,32 @@ const EditConcert = (props) => {
     return(
         <div>
             <NavBar />
-            <MDBCard id="edit-concert-card">
-                <MDBCardImage src='https://skuawk.com/skuawk-photos/music/eszter-biro.jpg' position='top' alt='...' id="form-img"/>
-                <MDBCardBody>
-                    <MDBCardTitle id="editTitle">Edit Concert</MDBCardTitle>
-                    <MDBCardText>
-                    <form onSubmit={editHandler} >
-                                <div className="Form">
-                                    <div className="Left">
-                                        <div className="Input">
-                                            <MDBInput label='Band Name' value={bandName} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setBandName(e.target.value)} />
-                                            {/* {errors.bandName?.message} */}
-                                        </div>
-                                        <div className="Input">
-                                            <MDBInput label='Venue Name' value={venue} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setVenue(e.target.value)} />
-                                            {/* {errors.venue?.message} */}
-                                        </div>
-                                        <div className="Input">
-                                            <MDBInput label='Concert Date' value={date} id='form1' type='date' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setDate(e.target.value)} /> 
-                                            {/* {errors.date?.message} */}
-                                        </div>   
-                                    </div>
-                                    <div className="Right">
-                                        <div>
-                                            <MDBCheckbox name='inlineCheck' id='inlineCheckbox1' value='option1' label='Yes' inline />
-                                            <MDBCheckbox name='inlineCheck' id='inlineCheckbox2' value='option2' label='No' inline />
-                                        </div>
-                                        <div className="Input">
-                                            <MDBInput label='Tickets Purchased' value={ticketsPurchased} id='form1' type='text' size="lg" style={{color: '#f72585'}} onChange= {(e) =>setTicketsPurchased(e.target.value)} /> 
-                                            {/* {errors.ticketsPurchased?.message} */}
-                                        </div>
-                                        <div>
-                                            <button className="btn btn-outline-dark btn-lg " type="submit">Add to List</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form> 
-                    </MDBCardText>
-                    <p><Link to={"/home"} class="homeLink">back to home</Link></p>
-                </MDBCardBody>
-                </MDBCard>
+                <h2>Edit Concert</h2>
+                <Form onSubmit={editHandler}>
+
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Band Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter band name"  id="bandName" value={bandName} required onChange={(e) => setBandName(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Venue</Form.Label>
+                        <Form.Control type="text" placeholder="Enter venue"  id="venue" value={venue} required onChange={(e) => setVenue(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Concert Date</Form.Label>
+                        <Form.Control type="date"  id="date" value={date} required onChange={(e) => setDate(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Tickets Purchased</Form.Label>
+                        <Form.Control type="text" placeholder="Tickets purchased"  id="ticketsPurchased" value={ticketsPurchased} required onChange={(e) => setTicketsPurchased(e.target.value)} />
+                    </Form.Group>
+
+                    <Button type="submit" className="addBtn">Add to List</Button>
+                    
+            </Form>
 
 
         </div>

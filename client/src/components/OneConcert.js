@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
+import { Button, Card } from 'react-bootstrap';
 import "../App.css";
 import NavBar from './NavBar';
 
@@ -27,7 +28,7 @@ const OneConcert = (props) => {
     const deleteConcert = (id) => {
         axios.delete(`http://localhost:8000/api/concerts/${id}`)
             .then(res => {
-                setConcertList(concertList.filter((concert) =>concert._id !== id));
+                setConcertList(concertList.filter((concert) => concert._id !== id));
                 navigate("/home");
             })
             .catch((err) => {
@@ -36,26 +37,41 @@ const OneConcert = (props) => {
     }
 
 
-    return ( 
+    return (
         <div>
-            <NavBar/>
-            <div>
-                <h2>{oneConcert.bandName}</h2>
-                <div id="videoSpace"><p>Photo or Video</p></div>
+            <NavBar />
+            <div id="oneConcertPage">
+                <h2 id="oneConcertPageH2">{oneConcert.bandName}</h2>
+                <Card id="oneConcertCard" >
+                    <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                        <Card.Title id="oneConcertCardTitle">Concert Date: {oneConcert.date} </Card.Title>
+                        <Card.Text className="oneConcertCardText">
+                            Tickets Purchased: {oneConcert.ticketsPurchased} 
+                        </Card.Text>
+                        <Card.Text className="oneConcertCardText">
+                            Location: {oneConcert.venue}
+                        </Card.Text>
+                        <Button type="submit" onClick={(e) => { deleteConcert(oneConcert._id) }} className="cancelBtn">Cancel concert</Button>
+                        <div>
+                            <Link to="/concerts/update/:id" id="editLink">Edit Concert Info</Link>
+                        </div>
+                    </Card.Body>
+                </Card>
                 <div id="concertInfo">
                     <div>
-                        <p>Concert Date: {oneConcert.date} </p>
-                        <p>Tickets Purchased: {oneConcert.ticketsPurchased} </p>
+                        
+                        <p></p>
                     </div>
                     <div>
-                        <p>Location: {oneConcert.venue}</p>
-                        <button type="submit" onClick={(e)=>{deleteConcert(oneConcert._id)}}>Cancel concert</button>
+                        <p></p>
+                        
                     </div>
                 </div>
             </div>
 
         </div>
-     );
+    );
 }
- 
+
 export default OneConcert;

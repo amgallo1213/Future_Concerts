@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
-import { MDBTable, MDBTableHead, MDBTableBody,
-    MDBBtn } from 'mdb-react-ui-kit';
+import Table from 'react-bootstrap/Table';
 import "../App.css";
+import { Button } from 'react-bootstrap';
 import NavBar from './NavBar';
-// import ConcertSearch from './Search';
+import TrackSearch from './Search';
+
+
 
 
 
@@ -30,70 +32,74 @@ const AllConcerts = (props) => {
         axios.delete(`http://localhost:8000/api/concerts/${id}`)
             .then(res => {
                 // console.log(res.data);
-                setConcertList(concertList.filter((concert)=>concert._id !== id));
+                setConcertList(concertList.filter((concert) => concert._id !== id));
                 // removeFromDom(res);
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             })
     }
 
-    return(
+    return (
         <div>
             <NavBar />
             <main>
-            <section id="intro">
-                <div id="right-side">
-                    <h1>Future Concerts</h1>
-                    <div>
-                        <p class="description">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur voluptates tempore excepturi nihil sequi! Nostrum, deserunt hic omnis rerum iure minima consequuntur alias illum! 
-                        </p>
-                        <p class="description">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur voluptates tempore excepturi nihil sequi! Nostrum, deserunt hic omnis rerum iure minima consequuntur alias illum! 
-                        </p>
-                        <Link to={'/concerts/create'} id="addLink">Add a concert</Link>
+                <section id="intro">
+                    <div id="right-side">
+                        <h1>Future Concerts</h1>
+                        <div>
+                            <p className="description">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur voluptates tempore excepturi nihil sequi! Nostrum, deserunt hic omnis rerum iure minima consequuntur alias illum!
+                            </p>
+                            <p className="description">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur voluptates tempore excepturi nihil sequi! Nostrum, deserunt hic omnis rerum iure minima consequuntur alias illum!
+                            </p>
+                            {/* <MDBBtn><Link to={'/concerts/create'} id="addBtn">Add a concert</Link></MDBBtn> */}
+                            <Button className="addBtn"><a href="/concerts/create" id="addBtnLink">Add Concert</a></Button>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <img src="https://skuawk.com/skuawk-photos/music/eszter-biro.jpg" />
-                </div>
-            </section>
-            <section id="results">
-                <MDBTable hover className="Table">
-                        <MDBTableHead>
+                    <div>
+                        <img src="https://skuawk.com/skuawk-photos/music/eszter-biro.jpg" alt="legs on a concert stage with a purple background" />
+                    </div>
+                </section>
+                <section id="results">
+                    <Table hover bordered size="sm">
+                        <thead>
                             <tr>
-                                <th scope='col' style={{fontSize: "1.8em"}}>Date</th>
-                                <th scope='col' style={{fontSize: "1.8em"}}>Band Name</th>
-                                <th scope='col' style={{fontSize: "1.8em"}}>Venue</th>
-                                <th scope='col' style={{fontSize: "1.8em"}}>Tickets Purchased</th>
-                                <th scope='col' style={{fontSize: "1.8em"}}>Cancel Concert</th>
-                                <th scope='col' style={{fontSize: "1.8em"}}>After the Concert</th>
+                                <th  style={{ fontSize: "1.8em" }}>Date</th>
+                                <th  style={{ fontSize: "1.8em" }}>Band Name</th>
+                                <th  style={{ fontSize: "1.8em" }}>Venue</th>
+                                <th  style={{ fontSize: "1.8em" }}>Tickets Purchased</th>
+                                <th  style={{ fontSize: "1.8em" }}>Cancel Concert</th>
+                                <th  style={{ fontSize: "1.8em" }}>After the Concert</th>
                             </tr>
-                        </MDBTableHead>
-                        <MDBTableBody>
+                        </thead>
+                        <tbody>
 
-                        {
-                            concertList.map((concert, index) => (
+                            {
+                                concertList.map((concert, index) => (
 
-                            <tr key={index} className="concert">
-                                <td className="border-end">{concert.date}</td>
-                                <td className="border-end" ><Link to={`/concerts/${concert._id}`} style={{color: '#4cc9f0'}}>{concert.bandName}</Link></td>
-                                <td className="border-end">{concert.venue}</td>
-                                <td className="border-end">{concert.ticketsPurchased}</td>
-                                <td className="border-end"><MDBBtn color="link" onClick={()=>{deleteConcert(concert._id)}}>cancel concert</MDBBtn></td>
-                                <td><Link to={"/concerts/past-concerts"} style={{color: '#4cc9f0'}}>send to the archives</Link></td>
-                                
-                            </tr>
+                                    <tr key={index} className="concert">
+                                        <td >{concert.date}</td>
+                                        <td ><Link to={`/concerts/${concert._id}`} style={{ color: '#FF4081' }}>{concert.bandName}</Link></td>
+                                        <td >{concert.venue}</td>
+                                        <td >{concert.ticketsPurchased}</td>
+                                        <td ><Button onClick={() => { deleteConcert(concert._id) }} className="cancelBtn" >cancel</Button></td>
+                                        <td><Link to={"/concerts/past-concerts"} style={{ color: '#FF4081' }}>send to the archives</Link></td>
 
-                            ))
-                        }
+                                    </tr>
 
-                        </MDBTableBody>
-                </MDBTable>
+                                ))
+                            }
 
-            </section>
-        
+                        </tbody>
+                    </Table>
+
+                </section>
+
+                <TrackSearch/>
+                
+
             </main>
 
         </div>

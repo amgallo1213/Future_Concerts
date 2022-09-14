@@ -1,87 +1,112 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import { Link } from '@reach/router';
-import {
-    MDBCard, MDBCardTitle, MDBCardBody,
-    MDBCardImage, MDBCardText, MDBInput,
-    MDBBtn, MDBRow, MDBCol
-} from 'mdb-react-ui-kit';
+import { Container, FormControl, InputGroup, Button } from 'react-bootstrap';
 import "../App.css";
-import SearchResults from './SearchResults';
-import NavBar from './NavBar';
 
 
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
 
-const ConcertSearch = () => {
-    let [bandName, setBandName] = useState("");
+const TrackSearch = () => {
+    const [searchInput, setSearchInput] = useState("");
+    const [accessToken, setAccessToken] = useState("");
+    const [albums, setAlbums] = useState([]);
 
-    // const options = {
-    //     method: 'GET',
-    //     url: 'https://concerts-artists-events-tracker.p.rapidapi.com/artist',
-    //     params: { name: 'Ed sheeran', page: '1' },
-    //     headers: {
-    //         'X-RapidAPI-Key': process.env.CONCERT_API_KEY,
-    //         'X-RapidAPI-Host': 'concerts-artists-events-tracker.p.rapidapi.com'
-    //     },
+    useEffect(() => {
+        var authParameters = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+        }
+        fetch('https://accounts.spotify.com/api/token', authParameters)
+            .then(result => result.json())
+            .then(data => setAccessToken(data.access_token))
+    }, [])
 
-    //     axios.request(options).then(function (response) {
-    //         console.log(response.data);
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     })
-    // };
+    async function search() {
+        console.log("Searching for " + searchInput);
 
+        var searchParameters = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            }
+        }
 
-    let [responseObj, setRepsonseObj] = useState({});
+        var artistId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
+            .then(response => response.json())
+            .then(data => { return data.artist })
 
+        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists' + artistId + '/albums' + '?include_groups=album&market_US&limit=50', searchParameters)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setAlbums(data.items);
+            })
+
+    }
 
     return (
         <div>
-            <NavBar />
+            <div>
+                <h2>Search for Artist Albums</h2>
 
-            <h2>Search for Concerts</h2>
-            <form>
-            <MDBRow className='mb-3'>
+                <Container>
+                    <InputGroup className="mb-3" size="lg">
+                        <FormControl 
+                            placeholder="Search for Artist"
+                            type="input"
+                            onKeyPress={e => {
+                                if (e.key == "Enter") {
+                                    search();
+                                }
+                            }}
+                            onChange={(e) =>setSearchInput(e.target.value)}
+                        />
+                        <Button onClick={search} id="searchBtn">Search</Button>
+                    </InputGroup>
+                </Container>
+
                 
-                <MDBCol size='6' lg='8'>
-                    <MDBInput label='Band Name' id='search' class="search" type='text' size="sm" value={bandName}
-                                onChange={(e) => setBandName(e.target.value)} />
-                </MDBCol>{' '}
-                <MDBCol size='6' lg='4'>
-                    <MDBBtn outline rounded className='mx-2' color='dark' id="searchBTN" type="submit">Search</MDBBtn>
-                </MDBCol>
-                
-            </MDBRow>
-            </form>
-            <div id="results">
-                <h3>Results for *BandName*</h3>
-                <MDBRow>
-                    <MDBCol size='6' sm='4'>
-                        <SearchResults responseObj={responseObj} />
-                    </MDBCol>
-                    <MDBCol size='6' sm='4'>
-                        <SearchResults responseObj={responseObj} />
-                    </MDBCol>
-                    <MDBCol size='6' sm='4'>
-                        <SearchResults responseObj={responseObj} />
-                    </MDBCol>
-                </MDBRow>
-            </div>
+                <div>
+                    <div>
+                        {albums.map((album, index) => {
+                            return (
 
+                                <div md='3'>
+                                    <div alignment='center' className="searchResults">
+                                        <img src="{album.images[0].url}" className='img-thumbnail' />
+                                        <div>
+                                            <h3>Track Name</h3>
+                                            <h4>{album.name}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                        }
 
-            
+                    </div>
 
-
+                </div>
         </div>
+    </div>
+
+
+
     );
 }
 
-export default ConcertSearch;
+export default TrackSearch;
 
 
 
-{/* <MDBCardImage src='https://images.unsplash.com/photo-1583795484071-3c453e3a7c71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29uY2VydCUyMHN0YWdlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60' alt='...' fluid /> */ }
+
 
 
 
