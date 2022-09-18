@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import { Link } from '@reach/router';
-import { Container, FormControl, InputGroup, Button } from 'react-bootstrap';
+import { Container, FormControl, InputGroup, Button, Row, Card } from 'react-bootstrap';
 import "../App.css";
 
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 
 const TrackSearch = () => {
@@ -40,14 +40,14 @@ const TrackSearch = () => {
 
         var artistId = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
             .then(response => response.json())
-            .then(data => { return data.artist })
+            .then(data => { return data.artists.items[0].id })
 
-        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists' + artistId + '/albums' + '?include_groups=album&market_US&limit=50', searchParameters)
+        var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistId + '/albums' + '?include_groups=album&market_US&limit=50', searchParameters)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 setAlbums(data.items);
-            })
+            });
 
     }
 
@@ -73,29 +73,25 @@ const TrackSearch = () => {
                 </Container>
 
                 
-                <div>
-                    <div>
+                <Container>
+                    <Row className="mx-2 row row-cols-6">
                         {albums.map((album, index) => {
                             return (
 
-                                <div md='3'>
-                                    <div alignment='center' className="searchResults">
-                                        <img src="{album.images[0].url}" className='img-thumbnail' />
-                                        <div>
-                                            <h3>Track Name</h3>
-                                            <h4>{album.name}</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Card>
+                                    <Card.Img src={album.images[0].url}></Card.Img>
+                                    <Card.Body>
+                                        <Card.Title>{album.name}</Card.Title>
+                                    </Card.Body>
+                                </Card>
                             )
-                        })
-                        }
+                        })}
 
-                    </div>
+                    </Row>
+                </Container>
 
-                </div>
+            </div>
         </div>
-    </div>
 
 
 

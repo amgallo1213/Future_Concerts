@@ -12,7 +12,7 @@ const NavBar = () => {
     return (
         <div>
             <div id="navDiv">
-                <a href="/home"><h2 id="navH2">Future Concerts</h2></a>
+                <a href="/home" id="navH2"><h2 >Future Concerts</h2></a>
                 <Nav className="justify-content-end" activeKey="/home">
                     <Nav.Item>
                         <Nav.Link href="/concerts/create">Add</Nav.Link>

@@ -1,12 +1,13 @@
 .App {
   text-align: center;
   /* background-color: #02010a; */
+  /* background: linear-gradient(#764BA2, #667EEA); */
 }
 
 #navDiv {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #navH2  {
@@ -29,7 +30,9 @@
 }
 
 #right-side {
-  background-color: #EDE7F6;
+  /* background-color: #EDE7F6; */
+  /* background-color: #E8EAF6; */
+  background: linear-gradient(#764BA2, #667EEA);
   width: 100%;
 }
 
@@ -44,7 +47,8 @@ h1  {
   width: 600px;
   margin-left: 200px;
   margin-top: 20px;
-  color: #6200EA;
+  /* color: #6200EA; */
+  color: #EDE7F6;
   font-size: 1.3rem;
 }
 
@@ -61,7 +65,7 @@ h1  {
 }
 
 #results    {
-  background-color: #E8EAF6;
+  background-color: #EDE7F6;
   width: 80%;
   height: auto;
   margin-left: 250px;
