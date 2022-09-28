@@ -4,6 +4,7 @@ import { Link, navigate } from '@reach/router';
 import { Button, Form } from 'react-bootstrap';
 import "../App.css";
 import NavBar from './NavBar';
+import Checkbox from './Checkbox';
 
 
 const AddConcert = (props) => {
@@ -31,6 +32,7 @@ const AddConcert = (props) => {
             });
     };
 
+
     return (
         <div className="App">
             <NavBar />
@@ -56,7 +58,9 @@ const AddConcert = (props) => {
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Tickets Purchased</Form.Label>
-                        <Form.Control type="text" placeholder="Tickets purchased"  id="ticketsPurchased" value={ticketsPurchased} required onChange={(e) => setTicketsPurchased(e.target.value)} />
+                        <Checkbox />
+                        <Checkbox />
+                        {/* <Form.Control type="text" placeholder="Tickets purchased"  id="ticketsPurchased" value={ticketsPurchased} required onChange={(e) => setTicketsPurchased(e.target.value)} /> */}
                     </Form.Group>
                     <Button type="submit" className="addBtn">Add to List</Button>
                 </Form>
