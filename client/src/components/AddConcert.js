@@ -11,27 +11,26 @@ const AddConcert = (props) => {
     const [bandName, setBandName] = useState("");
     const [venue, setVenue] = useState("");
     const [date, setDate] = useState("");
-    const [ticketsPurchased, setTicketsPurchased] = useState("");
+    // const [ticketsPurchased, setTicketsPurchased] = useState("");
     const [errors, setErrors] = useState({});
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
+    const submitHandler = (e) => {
+    e.preventDefault();
         axios.post("http://localhost:8000/api/concerts/create", {
-            bandName, venue, date, ticketsPurchased
+            bandName, venue, date
         })
-            .then((res) => {
-                console.log(res.data);
-                navigate("/home")
-            })
-            .catch((err) => {
-                console.log(err);
-                console.log("err.response:", err.response);
-                console.log("err.response.data:", err.response.data);
-                console.log("err.response.data.errors:", err.response.data.errors);
-                setErrors(err.response.data.errors);
-            });
+        .then((res) => {
+            console.log(res.data);
+            navigate("/home")
+        })
+        .catch((err) => {
+            console.log(err);
+            console.log("err.response:", err.response);
+            console.log("err.response.data:", err.response.data);
+            console.log("err.response.data.errors:", err.response.data.errors);
+            setErrors(err.response.data.errors);
+        });
     };
-
 
     return (
         <div className="App">
@@ -39,11 +38,11 @@ const AddConcert = (props) => {
 
             <h2>Add A Concert</h2>
             <div>
-                <Form onSubmit={onSubmitHandler}>
+                <Form onSubmit={submitHandler}>
 
                     <Form.Group className="mb-3" >
-                        <Form.Label>Band Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter band name"  id="bandName" value={bandName} required onChange={(e) => setBandName(e.target.value)} />
+                        <Form.Label value={bandName} required onChange={(e) => setBandName(e.target.value)}>Band Name: {bandName}</Form.Label>
+                        <Form.Control type="text" placeholder="Enter band name"  id="bandName"  />
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
@@ -59,10 +58,10 @@ const AddConcert = (props) => {
                     <Form.Group className="mb-3" >
                         <Form.Label>Tickets Purchased</Form.Label>
                         <Checkbox />
-                        <Checkbox />
+                        {/* <Checkbox /> */}
                         {/* <Form.Control type="text" placeholder="Tickets purchased"  id="ticketsPurchased" value={ticketsPurchased} required onChange={(e) => setTicketsPurchased(e.target.value)} /> */}
                     </Form.Group>
-                    <Button type="submit" className="addBtn">Add to List</Button>
+                    <Button onClick={submitHandler}   type="submit"className="addBtn">Add to List</Button>
                 </Form>
             </div>
         </div>
